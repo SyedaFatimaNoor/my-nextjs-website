@@ -14,7 +14,7 @@ export default function Navbar() {
     <nav className="sticky top-0 z-10 bg-white backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-gray-200">  
       <div className="max-w-5xl mx-auto px-4">  
         <div className="flex items-center justify-between h-16">  
-          <h1 className="text-2xl tracking-wider bg-gradient-to-r from-purple-700 via-pink-500 to-red-500 bg-clip-text text-transparent font-semibold cursor-pointer">Noor's Web</h1>  
+          <h1 className="text-2xl tracking-wider bg-gradient-to-r from-purple-700 via-pink-500 to-red-500 bg-clip-text text-transparent font-semibold cursor-pointer">Noor&apos;s Web</h1>  
           <div className="hidden md:flex space-x-4 text-gray-900">  
             <Link href="/" className="text-lg hover:text-purple-600 transition duration-300">Home</Link>  
             <Link href="/About" className="text-lg hover:text-purple-600 transition duration-300">About</Link>  

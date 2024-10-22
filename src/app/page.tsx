@@ -8,22 +8,21 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        
         await new Promise((resolve) => setTimeout(resolve, 2000));
       } catch (e) {
         console.error('Failed to fetch data:', e);
       } finally {
-        setLoading(false); 
+        setLoading(false);
       }
     };
 
     fetchData();
   }, []);
- 
+
   if (loading) {
     return <Loading />;
   }
- 
+
   return (
     <main className="relative inset-0 w-full min-h-screen">
       {/* First section */}
@@ -53,7 +52,7 @@ export default function Home() {
           My Coding Journey
         </h1>
         <div className="flex justify-center">
-          <img src="./images/coading2.jpg" alt="Coding Journey" className="h-auto rounded w-[36%] -ml-[40%] mt-[34px]" />
+          <img src="./images/coading2.jpg" alt="My Coding Journey" className="h-auto rounded w-[36%] -ml-[40%] mt-[34px]" />
         </div>
         <div className="flex items-center justify-center h-full bg-opacity-10">
           <div className="bg-white-500 ml-[203px] mt-[-44%] bg-clip-padding backdrop-filter bg-opacity-50 backdrop-saturate-150 backdrop-contrast-75 backdrop-blur-md p-6 rounded-lg shadow-lg text-center w-[600px]">

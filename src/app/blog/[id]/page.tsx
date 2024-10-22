@@ -1,6 +1,7 @@
 "use client";
 import { useParams } from 'next/navigation';
 import React from 'react';
+import Image from 'next/image';
  
 const blogs = [  
     { id: 1,
@@ -203,50 +204,49 @@ const blogs = [
 ];  
 
 const BlogPost: React.FC = () => {
-  const params = useParams<{ id: string }>();  
-  const id = params?.id;  
+    const params = useParams<{ id: string }>();
+    const id = params?.id;
 
- 
-  if (!id) {
-      return <p className="text-gray-500">Blog post ID not found</p>;
-  }
+    if (!id) {
+        return <p className="text-gray-500">Blog post ID not found</p>;
+    }
 
-  
-  const blog = blogs.find((item) => item.id.toString() === id);
+    const blog = blogs.find((item) => item.id.toString() === id);
 
-  
-  if (!blog) {
-      return <p className="text-gray-500">Blog post not found</p>;
-  }
+    if (!blog) {
+        return <p className="text-gray-500">Blog post not found</p>;
+    }
 
-  return (
-      <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg mt-6">
-          {/* Blog Post Header with Image */}
-          {blog.image && (
-              <div className="mb-6">
-                  <img
-                      src={blog.image}
-                      alt={blog.title}
-                      className="w-full h-64 object-cover rounded-lg shadow-md"
-                  />
-              </div>
-          )}
+    return (
+        <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg mt-6">
+            {/* Blog Post Header with Image */}
+            {blog.image && (
+                <div className="mb-6">
+                    <Image
+                        src={blog.image}
+                        alt={blog.title}
+                        width={800}  
+                        height={400}  
+                        className="w-full h-64 object-cover rounded-lg shadow-md"
+                    />
+                </div>
+            )}
 
-          {/* Blog Post Title */}
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">{blog.title}</h1>
-          <h1>{blog.Date}</h1>
-          <h1 className="text-l text-gray-800 mb-4">{blog.author}</h1>
-          
-          {/* Blog Post Content */}
-          <div className="text-gray-700 leading-relaxed">
-              {blog.content.split("\n").map((paragraph, index) => (
-                  <p key={index} className="mb-4">
-                      {paragraph}
-                  </p>
-              ))}
-          </div>
-      </div>
-  );
+            {/* Blog Post Title, Date, and Author */}
+            <h1 className="text-4xl font-bold text-gray-800 mb-2">{blog.title}</h1>
+            <h2 className="text-lg text-gray-600 mb-1">{blog.Date}</h2>
+            <h3 className="text-md text-gray-600 mb-4">by {blog.author}</h3>
+
+            {/* Blog Post Content */}
+            <div className="text-gray-700 leading-relaxed">
+                {blog.content.split("\n").map((paragraph, index) => (
+                    <p key={index} className="mb-4">
+                        {paragraph}
+                    </p>
+                ))}
+            </div>
+        </div>
+    );
 };
 
 export default BlogPost;
